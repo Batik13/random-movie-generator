@@ -1,0 +1,194 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+.app {
+  background-color: rgb(11, 11, 11);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  transition: all 0.5s;
+}
+
+.controls.is-hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  padding: 0;
+}
+
+.controls-container {
+  width: 100%;
+  max-width: 520px;
+  display: flex;
+  height: 44px;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  margin-right: 16px;
+}
+
+.search {
+  height: 44px;
+  font-size: 14px;
+  border-radius: 5px;
+  box-shadow: none;
+  display: block;
+  width: 100%;
+  color: rgb(85, 85, 85);
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(204, 204, 204, 0.09);
+  padding: 0 50px 0 12px;
+}
+
+.search:focus {
+  border-color: rgba(204, 204, 204, 0.17);
+  outline: 0;
+}
+
+.movie-list {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+
+.button {
+  padding: 7px 24px 5px 24px;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 2.22;
+  border-radius: 5px;
+  border: 1px solid rgb(232, 232, 232);
+  color: rgb(153, 153, 153);
+  background-color: rgba(154, 154, 154, 0.16);
+  border-color: rgba(154, 154, 154, 0.16);
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s liner;
+}
+
+.button:hover {
+  color: rgb(255, 255, 255);
+  background-color: rgba(179, 179, 179, 0.2);
+  border-color: rgba(179, 179, 179, 0.2);
+}
+
+.button.is-visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.search-full {
+  width: 100%;
+  background: rgb(25, 25, 25);
+  border-radius: 5px;
+  position: relative;
+  z-index: 5;
+}
+
+.movie {
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+  flex: 1;
+  transition: all 0.5s;
+}
+
+.movie.mini {
+  height: 90px;
+  padding: 10px;
+  color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  width: auto;
+  background: unset;
+  border: none;
+  background-size: unset;
+  background-position: unset;
+}
+
+.movie.mini:hover {
+  background: rgba(179, 179, 179, 0.2);
+}
+
+.movie.mini .movie-poster {
+  margin-right: 13px;
+  height: 100%;
+}
+
+.movie.mini .movie-img {
+  height: 70px;
+  width: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.movie.mini .movie-content > div {
+  font-size: 14px;
+}
+
+.movie.mini .movie-content > div:nth-last-child(1) {
+  margin-bottom: 0;
+}
+
+.movie.mini .movie-name {
+  margin-bottom: 8px;
+}
+
+.movie.mini .movie-year {
+  margin-bottom: 4px;
+}
+
+.movie.mini .movie-year,
+.movie.mini .movie-directors {
+  color: rgb(204, 204, 204);
+}
+
+.movie.is-hidden {
+  transform: rotateY(90deg);
+}
+
+.movie.is-winner {
+  position: absolute;
+  z-index: 200;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: unset;
+}
+
+@media (max-width: 1280px) {
+  .movie-list {
+    flex-direction: column;
+  }
+}
